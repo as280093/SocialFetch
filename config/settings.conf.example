@@ -1,0 +1,19 @@
+# Replace the placeholders with your actual IDs. 
+
+# Social & Coding
+GitHub=your_github_username
+Reddit=your_reddit_username
+
+# Anime & Manga
+AniList=your_anilist_username
+MyAnimeList=your_myanimelist_username
+Kitsu=your_kitsu_username
+Simkl=your_simkl_id
+
+# Gaming
+# Note: Steam requires your 17-digit SteamID64
+Steam=your_steamid_64
+
+# --- Global Settings ---
+# Cache duration in minutes (0 = disable cache)
+Cache=30

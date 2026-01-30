@@ -1,0 +1,30 @@
+# --- SECRETS & CONFIG ---
+.env
+config/.env
+config/settings.conf
+*.env
+
+# --- DATA & CACHE ---
+cache/*.json
+cache/*.txt
+cache/*.ps1
+*.log
+
+# --- IDE & TOOLS ---
+.vscode/
+.history
+.LSOverride
+
+# --- DOCUMENTATION ARTIFACTS ---
+node_modules/
+.vitepress/dist/
+.vitepress/cache/
+
+# --- WINDOWS JUNK ---
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- DEVELOPMENT ---
+.attach_pid*

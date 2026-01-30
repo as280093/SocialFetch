@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Community Discussions
+    url: https://github.com/as280093/SocialFetch/discussions
+    about: "Have a question, an idea, or want to show off your dashboard? Start here."
+  
+  - name: 🔒 Security Policy
+    url: https://github.com/as280093/SocialFetch/security/policy
+    about: "Please report sensitive security vulnerabilities (like token leaks) privately."
