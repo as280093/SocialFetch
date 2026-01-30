@@ -1,23 +1,23 @@
-New-Item -ItemType Directory -Force -Path .github
+Remove-Item .github/release.yml -Force -ErrorAction SilentlyContinue
 
-@"
-changelog:
+$CleanYaml = "changelog:
   exclude:
     labels:
       - ignore-for-release
       - invalid
   categories:
-    - title: "🚀 New Features"
+    - title: '🚀 New Features'
       labels:
         - enhancement
         - feature
-    - title: "🐛 Bug Fixes"
+    - title: '🐛 Bug Fixes'
       labels:
         - bug
         - fix
-    - title: "🧰 Maintenance"
+    - title: '🧰 Maintenance'
       labels:
         - chore
         - documentation
-        - internal
-"@ | Out-File -FilePath .github/release.yml -Encoding utf8
+        - internal"
+
+[System.IO.File]::WriteAllText("$PWD/.github/release.yml", $CleanYaml)
