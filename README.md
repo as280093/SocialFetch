@@ -12,6 +12,18 @@
 ![GitHub Forks](https://img.shields.io/github/forks/as280093/SocialFetch?style=for-the-badge&color=89b4fa&logo=git)
 ![GitHub License](https://img.shields.io/github/license/as280093/SocialFetch?style=for-the-badge&color=a6e3a1)
 ![PowerShell Version](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=for-the-badge&logo=powershell)
+<br>
+<div align="center">
+
+<a href="https://github.com/as280093/SocialFetch/releases/latest">
+  <img src="https://img.shields.io/github/v/release/as280093/SocialFetch?style=for-the-badge&color=f38ba8&logo=windows&label=Download%20Stable" alt="Download Stable">
+</a>
+
+<a href="https://github.com/as280093/SocialFetch/releases">
+  <img src="https://img.shields.io/github/v/release/as280093/SocialFetch?include_prereleases&style=for-the-badge&color=orange&logo=github&label=Download%20Beta" alt="Download Beta">
+</a>
+
+</div>
 
 **A modular, aesthetic dashboard companion for Fastfetch.**
 *Turn your terminal into a real-time progress tracker.*
@@ -40,6 +52,18 @@ Standard fetch tools provide a static snapshot of your hardware. **SocialFetch**
 
 ## 📦 Installation & Setup
 
+### Option A: The "Normal" Way (Download Zip)
+*Recommended for most users.*
+
+1.  Click the **[Download Latest](https://github.com/as280093/SocialFetch/releases/latest)** button above.
+2.  Download the `SocialFetch-vX.X.zip` file.
+3.  Extract the folder into your Fastfetch config directory:
+    * **Path:** `%USERPROFILE%\.config\fastfetch\`
+    * *You should end up with a folder named `SocialFetch` inside `fastfetch`.*
+
+### Option B: The "Developer" Way (Git Clone)
+*Use this if you plan to edit the code or contribute.*
+
 ### 1. Clone the Repository
 Open PowerShell and clone the project into your Fastfetch configuration directory:
 ```powershell
@@ -58,7 +82,7 @@ Update your `config.jsonc` using the `%USERPROFILE%` variable to ensure universa
 ```jsonc
 {
     "type": "command",
-    "key": "│  ├─ Reddit   ",
+    "key": "Reddit   ",
     "keyColor": "red",
     "text": "%USERPROFILE%/.config/fastfetch/SocialFetch/bin/run.bat Reddit red"
 }
@@ -121,5 +145,8 @@ SocialFetch is distributed under the **MIT License**.
 ---
 
 ## 📈 Activity & Growth
-
-![Star History Chart](https://api.star-history.com/svg?repos=as280093/SocialFetch&type=Date)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=as280093/SocialFetch&type=Date&theme=dark">
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=as280093/SocialFetch&type=Date">
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=as280093/SocialFetch&type=Date&theme=dark">
+</picture>

@@ -10,17 +10,26 @@ permissions:
 
 jobs:
   build:
+    name: Build & Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
 
-      - name: Create Clean Zip Archive
+      - name: Prepare Release Artifacts
         run: |
-          ZIP_NAME="SocialFetch-${{ github.ref_name }}.zip"
+          # 1. Define Variables
+          TAG_NAME=${{ github.ref_name }}
+          ZIP_NAME="SocialFetch-${TAG_NAME}.zip"
           STAGING_DIR="SocialFetch"
+          
+          # 2. Create Staging Area
           mkdir $STAGING_DIR
           rsync -av --exclude='.git' --exclude="$STAGING_DIR" . $STAGING_DIR/
+          
+          # 3. Clean "Junk" Files
           rm -rf $STAGING_DIR/.github
           rm -rf $STAGING_DIR/assets
           rm -f  $STAGING_DIR/.gitignore
@@ -29,11 +38,26 @@ jobs:
           rm -f  $STAGING_DIR/CONTRIBUTING.md
           rm -f  $STAGING_DIR/SECURITY.md
           zip -r $ZIP_NAME $STAGING_DIR
+          
+          # 5. Generate Checksum
+          sha256sum $ZIP_NAME > checksums.txt
+          
+          # 6. Save Variables
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
-      - name: Create GitHub Release
+
+      - name: Publish Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ env.ZIP_NAME }}
+          files: |
+            ${{ env.ZIP_NAME }}
+            checksums.txt
+          
           generate_release_notes: true
-          draft: false
-          prerelease: false
+          append_body: true
+          body: |
+            ---
+            **Full Changelog**: https://github.com/${{ github.repository }}/commits/${{ github.ref_name }}
+            **VirusTotal Check**: `checksums.txt` included in assets.
+          
+          prerelease: ${{ contains(github.ref, '-') }}
+          make_latest: ${{ !contains(github.ref, '-') }}
