@@ -17,14 +17,19 @@ jobs:
 
       - name: Create Clean Zip Archive
         run: |
-          # Create a specific name for the zip based on the tag (e.g., SocialFetch-v1.0.zip)
           ZIP_NAME="SocialFetch-${{ github.ref_name }}.zip"
-          
-          # Zip everything (.) BUT exclude (-x) the blacklist items
-          zip -r $ZIP_NAME . -x "*.md" "assets/*" ".github/*" ".git/*" ".gitignore" "CONTRIBUTING" "LICENSE"
-          
+          STAGING_DIR="SocialFetch"
+          mkdir $STAGING_DIR
+          rsync -av --exclude='.git' --exclude="$STAGING_DIR" . $STAGING_DIR/
+          rm -rf $STAGING_DIR/.github
+          rm -rf $STAGING_DIR/assets
+          rm -f  $STAGING_DIR/.gitignore
+          rm -f  $STAGING_DIR/.gitattributes
+          rm -f  $STAGING_DIR/README.md
+          rm -f  $STAGING_DIR/CONTRIBUTING.md
+          rm -f  $STAGING_DIR/SECURITY.md
+          zip -r $ZIP_NAME $STAGING_DIR
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
