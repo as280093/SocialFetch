@@ -1,25 +1,6 @@
 <h1 align="center">
   <br>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="a" x1="0%" x2="100%" y1="0%" y2="100%">
-      <stop offset="0%" stop-color="#89b4fa"/>
-      <stop offset="100%" stop-color="#cba6f7"/>
-    </linearGradient>
-    <filter id="b" width="300%" height="300%" x="-50%" y="-50%">
-      <feGaussianBlur result="coloredBlur" stdDeviation="8"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  <circle cx="256" cy="256" r="170" stroke="url(#a)" stroke-width="20" filter="url(#b)"/>
-  <g fill="#CDD6F4">
-    <path d="M160 180h30v30h-30zm30 30h30v30h-30zm30 30h30v30h-30zm-30 30h30v30h-30zm-30 30h30v30h-30z"/>
-    <path fill="#F38BA8" d="M270 300h90v30h-90z"/>
-  </g>
-</svg>
+  <img src="assets/SocialFetch.png" alt="SocialFetch" width="200">
   <br>
   SocialFetch
   <br>

@@ -1,0 +1,23 @@
+New-Item -ItemType Directory -Force -Path .github
+
+@"
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - invalid
+  categories:
+    - title: "🚀 New Features"
+      labels:
+        - enhancement
+        - feature
+    - title: "🐛 Bug Fixes"
+      labels:
+        - bug
+        - fix
+    - title: "🧰 Maintenance"
+      labels:
+        - chore
+        - documentation
+        - internal
+"@ | Out-File -FilePath .github/release.yml -Encoding utf8
